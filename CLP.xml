@@ -1,0 +1,42 @@
+<ForceField>
+ <!-- Shown below are example entries for force field parameters.
+
+ Please refer to the OpenMM .xml specs for more info:
+ http://docs.openmm.org/7.0.0/userguide/application.html#writing-the-xml-file-->
+
+<!-- Zijie, why did you choose the masses below? How are the related to 3m (BB mass) and 1m (HB mass)?-->
+
+ <AtomTypes>
+  <Type name="BBP" class="BB" element="_BBP" mass="1" def="[_BBP]"/>
+  <Type name="BBO" class="BB" element="_BBO" mass="1" def="[_BBO]"/>
+  <Type name="BBG" class="BB" element="_BBG" mass="1" def="[_BBG]"/>
+  <Type name="BBK" class="BB" element="_BBK" mass="1" def="[_BBK]"/>
+  <Type name="BBD" class="BB" element="_BBD" mass="1" def="[_BBD]"/>
+  <Type name="HBP" class="HB" element="_HBP" mass="0.15" def="[_HBP]"/>
+  <Type name="HBG" class="HB" element="_HBG" mass="0.15" def="[_HBG]"/>
+ </AtomTypes>
+
+ <HarmonicBondForce>
+  <!-- Zijie, why did you use 0.037 instead of 0.37 (sigma) and 0.0848 instead of 0.84 (sigma)? You did the same thing in mbuild_ona and I'm confused.-->
+  <!-- For now, I will use 0.05 instead of 0.5 as the BB-BB bond length to be consistent with your previous work-->
+  <!-- Also, what are the units of k? They certainly are not eps/sigma^2-->
+  <Bond class1="BB" class2="BB" length="0.05" k="836820.083682"/>
+  <Bond class1="BB" class2="HB" length="0.037" k="836820.083682"/>
+ </HarmonicBondForce>
+
+ <HarmonicAngleForce>
+  <!-- What are the units of k?-->
+  <!-- BB-BB-BB angles and HB-BB-BB angles are correct (in radians)-->
+  <Angle class1="BB" class2="BB" class3="BB" angle="3.1415926536" k="2510.39022621"/>
+  <Angle class1="HB" class2="BB" class3="BB" angle="1.57079632679" k="25103.9022621"/>
+ </HarmonicAngleForce>
+
+ <PeriodicTorsionForce>
+  <!-- Note, the units of k are in eps. Zijie, please let me know the correct units for Foyer and I will convert-->
+  <Proper type1="HBP" type2="BBP" type3="BBG" type4="HBG" periodicity1="1" phase1="0" k1="15"/>
+  <Proper type1="HBG" type2="BBG" type3="BBP" type4="HBP" periodicity1="1" phase1="0" k1="15"/>
+
+  <Proper type1="HBP" type2="BBD" type3="BBG" type4="HBG" periodicity1="1" phase1="0" k1="15"/> 
+  <Proper type1="HBG" type2="BBG" type3="BBD" type4="HBP" periodicity1="1" phase1="0" k1="25.1046"/> 
+ </PeriodicTorsionForce>
+</ForceField>
