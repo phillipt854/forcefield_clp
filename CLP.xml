@@ -4,7 +4,7 @@
  Please refer to the OpenMM .xml specs for more info:
  http://docs.openmm.org/7.0.0/userguide/application.html#writing-the-xml-file-->
 
-<!-- Zijie, why did you choose the masses below? How are the related to 3m (BB mass) and 1m (HB mass)?-->
+<!-- Zijie, why did you choose the masses below? How are they related to 3m (BB mass) and 1m (HB mass)?-->
 
  <AtomTypes>
   <Type name="BBP" class="BB" element="_BBP" mass="1" def="[_BBP]"/>
@@ -32,11 +32,14 @@
  </HarmonicAngleForce>
 
  <PeriodicTorsionForce>
-  <!-- Note, the units of k are in eps. Zijie, please let me know the correct units for Foyer and I will convert-->
+  <!-- Note, I set the units of k ain terms of epsilon. Zijie, please let me know the correct units for Foyer and I will convert-->
+  <!-- Dihedrals are only defined for amino acids which have hydrogen bonding sites: P,D, and G -->
   <Proper type1="HBP" type2="BBP" type3="BBG" type4="HBG" periodicity1="1" phase1="0" k1="15"/>
   <Proper type1="HBG" type2="BBG" type3="BBP" type4="HBP" periodicity1="1" phase1="0" k1="15"/>
 
   <Proper type1="HBP" type2="BBD" type3="BBG" type4="HBG" periodicity1="1" phase1="0" k1="15"/> 
-  <Proper type1="HBG" type2="BBG" type3="BBD" type4="HBP" periodicity1="1" phase1="0" k1="25.1046"/> 
+  <Proper type1="HBG" type2="BBG" type3="BBD" type4="HBP" periodicity1="1" phase1="0" k1="15"/> 
+  
+  <Proper type1="HBG" type2="BBG" type3="BBG" type4="HBG" periodicity1="1" phase1="0" k1="15"/> 
  </PeriodicTorsionForce>
 </ForceField>

@@ -7,7 +7,7 @@ from foyer import Forcefield
 from foyer.tests.utils import atomtype
 
 MOL2_FILES = glob('test_molecules/ds.mol2')
-FORCEFIELD_FILES = glob('ONA.xml')
+FORCEFIELD_FILES = glob('CLP.xml')
 
 FORCEFIELD = Forcefield(forcefield_files=FORCEFIELD_FILES)
 
