@@ -18,7 +18,7 @@
  </AtomTypes>
 
  <HarmonicBondForce>
-  <!-- k has units of epsilon/sigma^2-->
+  <!-- k has units of epsilon/sigma^2 -->
   <Bond class1="BB" class2="BB" length="0.05" k="1000"/>
   <Bond class1="BB" class2="HB" length="0.037" k="1000"/>
  </HarmonicBondForce>
