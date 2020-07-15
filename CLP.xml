@@ -13,6 +13,8 @@
   <Type name="BBD" class="BB" element="_BBD" mass="3" def="[_BBD]"/>
   <Type name="HBP" class="HB" element="_HBP" mass="1" def="[_HBP]"/>
   <Type name="HBG" class="HB" element="_HBG" mass="1" def="[_HBG]"/>
+  <Type name="INC" class="IN" element="_INC" mass="1" def="[_INC]"/>
+  <Type name="INA" class="IN" element="_INA" mass="1" def="[_INA]"/>
  </AtomTypes>
 
  <HarmonicBondForce>
